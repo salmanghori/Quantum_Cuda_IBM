@@ -25,28 +25,7 @@ Classical scenario generation (e.g., Gaussian assumptions) often fails to captur
 - **Scenario generation**: sample learned distributions → build Monte Carlo paths
 - **HPC-ready workflows** (e.g., SLURM/Ibex-style batch runs)
 
----
 
-## Repository Structure (recommended)
-
-> Adjust names to match your actual files/folders.
-
-.
-├── cudaq/ # CUDA-Q kernels + training/inference scripts
-│ ├── models/ # quantum-walk circuit/kernels
-│ ├── train/ # training loops + utilities
-│ └── run_cudaq.py
-├── qiskit/ # Qiskit circuits + IBM runtime scripts
-│ ├── circuits/ # parameterized circuits
-│ ├── train/ # training loops + utilities
-│ └── run_qiskit.py
-├── data/
-│ ├── synthetic/ # toy distributions / generated returns
-│ └── historical/ # (optional) processed return series
-├── notebooks/ # experiments + plots
-├── slurm/ # batch scripts for Ibex/HPC
-├── results/ # saved metrics, plots, checkpoints
-└── README.md
 
 
 ---
@@ -71,7 +50,7 @@ Classical scenario generation (e.g., Gaussian assumptions) often fails to captur
 ### 1) Create an environment
 
 **Conda (recommended):**
-```bash
+bash
 conda create -n quantum-walk python=3.10 -y
 conda activate quantum-walk
 pip install -U pip
@@ -114,6 +93,7 @@ python qiskit/run_qiskit.py \
   --shots 4000 \
   --out results/ibm_hw/
 Tip: start on simulators first, then move to hardware once the pipeline is stable.
+
 
 Model Overview (high-level)
 A typical “quantum walk” generative model here looks like:
